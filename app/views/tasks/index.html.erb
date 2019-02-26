@@ -1,7 +1,7 @@
 <% if logged_in? %>
   <p>ログイン完了ユーザ: <%= current_user.name %></p>
   <div class="row">
-    <h1>タスク一覧ページ</h1>
+    <h1>Task一覧ページ</h1>
 
     <% if @tasks.any? %>
       <table class="table table-striped">
@@ -26,6 +26,8 @@
       <div>
         <%= paginate @tasks %>
       </div>
+    <% else %>
+      <%= link_to '新規Taskの投稿', new_task_path, class: 'btn btn-default' %>
     <% end %>
   </div>
 <% else %>
